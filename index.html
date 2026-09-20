@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff4f91" />
+  <title>A Little Birthday Surprise ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="floating-shapes" aria-hidden="true">
+    <span>✦</span><span>♡</span><span>✧</span><span>♡</span><span>✦</span>
+  </div>
+
+  <!-- LOCK SCREEN -->
+  <main id="lockScreen" class="screen lock-screen">
+    <section class="lock-art">
+      <div class="tape tape-a"></div>
+      <div class="polaroid">
+        <div class="photo-frame">
+          <img src="assets/merlin-birthday.jpg" alt="Merlin celebrating birthday" />
+        </div>
+        <div class="polaroid-caption">Merlin Happy birthday ✿</div>
+      </div>
+      <div class="mini-camera">📷</div>
+      <div class="mini-bow">🎀</div>
+      <div class="sparkle s1">✦</div>
+      <div class="sparkle s2">✧</div>
+    </section>
+
+    <section class="lock-panel">
+      <p class="eyebrow">a tiny surprise is waiting</p>
+      <h1>Enter Secret Code</h1>
+      <div class="heart-row" aria-hidden="true">♡　♡　♡　♡</div>
+      <p class="hint">A little date opens a big birthday moment.</p>
+
+      <div id="pinDisplay" class="pin-display" aria-label="Entered code">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="keypad" aria-label="Number keypad">
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+        <button data-key="clear" class="special">×</button><button data-key="0">0</button><button data-key="back" class="special">⌫</button>
+      </div>
+      <button id="enterBtn" class="enter-btn">Unlock the surprise <span>→</span></button>
+      <p id="pinMessage" class="pin-message">Hint: the birthday is written on the calendar. ✨</p>
+    </section>
+  </main>
+
+  <!-- BIRTHDAY HOME -->
+  <main id="birthdayScreen" class="hidden">
+    <header class="topbar">
+      <div class="brand"><span class="brand-dot"></span> a little birthday page</div>
+      <button class="tiny-btn" id="sparkleBtn">✨ sprinkle magic</button>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">22 • 09 • a day worth celebrating</p>
+        <h2>Happy birthday,<br><em>Merlin!</em> 🎂</h2>
+        <p class="hero-sub">
+          One small corner of the internet, made especially for Merlin
+          who makes every day brighter with her smile and energy.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn open-modal" data-modal="letterModal">Open birthday note ✉️</button>
+          <button class="ghost-btn scroll-to" data-target="memorySection">See the memories ↓</button>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="photo-sticker sticker-top">best smile & energy ✦</div>
+        <div class="hero-polaroid">
+          <img src="assets/merlin-birthday.jpg" alt="Merlin birthday celebration" />
+          <div class="hero-caption">Merlin Happy birthday ✿</div>
+        </div>
+        <div class="photo-sticker sticker-bottom">22—09 ♡</div>
+      </div>
+    </section>
+
+    <section class="quick-grid">
+      <button class="feature-card open-modal" data-modal="letterModal">
+        <span class="icon">💌</span>
+        <span><b>A note for you</b><small>Something from the heart — office edition.</small></span>
+        <i>↗</i>
+      </button>
+      <button class="feature-card open-modal" data-modal="memoryModal">
+        <span class="icon">📸</span>
+        <span><b>One little memory</b><small>Because the best stories happen between meetings.</small></span>
+        <i>↗</i>
+      </button>
+      <button class="feature-card open-modal" data-modal="wishModal">
+        <span class="icon">🌷</span>
+        <span><b>Birthday wishes</b><small>Tap for a pocketful of good things.</small></span>
+        <i>↗</i>
+      </button>
+    </section>
+
+    <section id="memorySection" class="memory-section">
+      <div class="section-heading">
+        <p class="eyebrow">the tiny memory wall</p>
+        <h3>Good days deserve to be kept.</h3>
+        <p>Three little reminders for the year ahead.</p>
+      </div>
+
+      <div class="memory-grid">
+        <article class="memory-card tilt-left card-has-photo">
+          <div class="card-number">01</div>
+          <h4>More coffee breaks</h4>
+          <div class="card-img-wrap">
+            <img src="assets/card-red-saree.jpg" alt="Merlin in red saree" />
+          </div>
+          <p>More tiny conversations, random laughs, and those “wait, what happened?” office moments.</p>
+          <span class="card-footer">approved by the break room ✦</span>
+        </article>
+        <article class="memory-card featured">
+          <div class="card-number">02</div>
+          <h4>More photos like this</h4>
+          <div class="card-img-wrap">
+            <img src="assets/card-group-memories.jpg" alt="Friends celebrating together" />
+          </div>
+          <p>The best memories with the most incredible team energy and smiles.</p>
+          <span class="card-footer">keep the good people close ♡</span>
+        </article>
+        <article class="memory-card tilt-right card-has-photo">
+          <div class="card-number">03</div>
+          <h4>More reasons to smile</h4>
+          <div class="card-img-wrap">
+            <img src="assets/card-pink-dress.jpg" alt="Merlin smiling in pink dress" />
+          </div>
+          <p>New wins, new adventures, peaceful weekends, and plenty of moments that make you say “okay, life is good.”</p>
+          <span class="card-footer">loading a lovely year…</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="quote-mark">“</div>
+      <blockquote>
+        May this year bring you good work, great people,
+        unexpected happiness and absolutely zero unnecessary meetings.
+      </blockquote>
+      <p>— the unofficial birthday committee ✿</p>
+    </section>
+
+    <!-- 4th Section: Aesthetic Cake & Happiest Bday Merlin -->
+    <section class="cake-celebration-section">
+      <div class="cake-card-glass">
+        <div class="cake-visual">
+          <div class="cake-glow"></div>
+          <img src="assets/aesthetic-cake.jpg" alt="Aesthetic birthday cake with candle" class="aesthetic-cake-img" />
+          <div class="cake-badge">✨ Make a Wish</div>
+        </div>
+        <div class="cake-content">
+          <p class="eyebrow-luxury">A Special Celebration</p>
+          <h3 class="cake-title">Happiest Bday<br><span class="gradient-name">Merlin!</span> 🎂✨</h3>
+          <p class="cake-subtitle">
+            May this year bring you abundant joy, peace, wonderful achievements,
+            and countless reasons to smile every single day.
+          </p>
+          <div class="cake-interactive-row">
+            <button id="surpriseBtn" class="luxury-sparkle-btn">
+              <span>Sprinkle Birthday Magic ✨</span>
+            </button>
+            <div class="wish-hint-tag">Tap to light up the celebration 🎉</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>made with ✿, good vibes & office friendship</span>
+      <span>22—09</span>
+    </footer>
+  </main>
+
+  <!-- MODALS -->
+  <div id="letterModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+    <div class="modal-card letter-paper">
+      <button class="close-modal" aria-label="Close">×</button>
+      <p class="eyebrow">sealed with good vibes</p>
+      <h3 id="letterTitle">A little birthday note 💌</h3>
+      <p>
+        Happy birthday Merlin! 🎂<br><br>
+        Wishing you a year full of happy surprises, peaceful days, exciting
+        opportunities and lots of reasons to laugh. Working with wonderful people
+        makes the everyday stuff so much better, and we’re genuinely glad to
+        celebrate your special day with you!
+      </p>
+      <p>
+        Stay exactly the kind, cheerful, amazing person you are — and may your
+        next 12 months be filled with warmth, success, and beautiful memories.
+      </p>
+      <div class="signature">— wishing you the happiest birthday ✿</div>
+    </div>
+  </div>
+
+  <div id="memoryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="memoryTitle">
+    <div class="modal-card">
+      <button class="close-modal" aria-label="Close">×</button>
+      <p class="eyebrow">saved in the little album</p>
+      <h3 id="memoryTitle">A snapshot worth keeping 📸</h3>
+      <div class="modal-photo"><img src="assets/merlin-birthday.jpg" alt="Merlin birthday celebration" /></div>
+      <p class="modal-caption">Merlin Happy birthday ✿</p>
+    </div>
+  </div>
+
+  <div id="wishModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
+    <div class="modal-card wish-card">
+      <button class="close-modal" aria-label="Close">×</button>
+      <p class="eyebrow">pick a tiny wish</p>
+      <h3 id="wishTitle">For your next chapter 🌷</h3>
+      <div id="wishText" class="wish-text">May your inbox be light, your weekends long, and your coffee always the right temperature.</div>
+      <button id="anotherWish" class="secondary-btn">another one ↻</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">✨ birthday magic activated!</div>
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
