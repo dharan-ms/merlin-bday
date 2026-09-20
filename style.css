@@ -252,6 +252,10 @@ button:focus-visible { outline: 3px solid #ff4f91; outline-offset: 3px; }
   background: #fdf2f7;
   box-shadow: 0 8px 24px rgba(79, 30, 54, 0.08);
 }
+.card-img-wrap.card-img-full {
+  height: 330px;
+  margin-bottom: 0;
+}
 .card-img-wrap img {
   width: 100%;
   height: 100%;
@@ -493,28 +497,345 @@ footer {
 @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
 @media (max-width: 900px) {
-  .screen { grid-template-columns: 1fr; padding: 30px 20px 55px; }
-  .lock-art { min-height: 440px; }
-  .lock-panel { padding-bottom: 20px; }
-  .hero { grid-template-columns: 1fr; gap: 35px; padding-top: 30px; }
-  .hero-photo-wrap { min-height: 430px; }
-  .quick-grid, .memory-grid { grid-template-columns: 1fr; }
-  .memory-card { min-height: 350px; }
-  .tilt-left, .tilt-right { transform: none; }
-  .surprise-section { margin-inline: 20px; padding: 35px; flex-direction: column; align-items: flex-start; }
+  .screen {
+    grid-template-columns: 1fr;
+    padding: 36px 20px 60px;
+    gap: 30px;
+  }
+  .lock-art {
+    min-height: 380px;
+  }
+  .polaroid {
+    width: min(340px, 90%);
+    padding: 14px 14px 28px;
+    transform: rotate(-3deg);
+  }
+  .polaroid-caption {
+    font-size: 17px;
+    padding-top: 12px;
+  }
+  .mini-camera {
+    font-size: 40px;
+    top: 2%;
+    right: 6%;
+  }
+  .mini-bow {
+    font-size: 44px;
+    bottom: 4%;
+    right: 8%;
+  }
+  .tape {
+    width: 100px;
+    height: 28px;
+    top: 10%;
+    left: 14%;
+  }
+  .lock-panel {
+    padding-bottom: 20px;
+    max-width: 360px;
+  }
+  .keypad {
+    max-width: 320px;
+    gap: 10px;
+  }
+  .keypad button {
+    height: 64px;
+    font-size: 22px;
+  }
+  .enter-btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px 20px 60px;
+    text-align: center;
+  }
+  .hero-sub {
+    margin-inline: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-photo-wrap {
+    min-height: 380px;
+  }
+  .hero-polaroid {
+    width: min(360px, 92%);
+    transform: rotate(2deg);
+  }
+  .photo-sticker {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+  .quick-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px 70px;
+    gap: 14px;
+  }
+  .memory-section {
+    padding: 70px 20px;
+  }
+  .memory-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 440px;
+  }
+  .memory-card {
+    min-height: auto;
+    padding: 22px 20px;
+  }
+  .card-img-wrap {
+    height: 240px;
+  }
+  .tilt-left, .tilt-right {
+    transform: none;
+  }
+  .quote-section {
+    padding: 70px 20px 50px;
+  }
+  .cake-card-glass {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 28px;
+    text-align: center;
+    border-radius: 28px;
+  }
+  .aesthetic-cake-img {
+    max-width: 300px;
+  }
+  .cake-subtitle {
+    margin-inline: auto;
+    font-size: 15.5px;
+  }
+  .cake-interactive-row {
+    justify-content: center;
+  }
+  footer {
+    padding: 25px 20px 40px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
 }
-@media (max-width: 540px) {
-  .topbar { padding: 20px 18px; }
-  .brand { font-size: 15px; }
-  .tiny-btn { display: none; }
-  .hero { padding-inline: 18px; }
-  .hero h2 { font-size: 55px; }
-  .hero-photo-wrap { min-height: 360px; }
-  .photo-sticker { font-size: 11px; }
-  .quick-grid { padding-inline: 18px; }
-  .memory-section { padding-inline: 18px; }
-  .quote-section { padding: 90px 20px; }
-  .modal-card { padding: 28px 22px; }
-  .modal-card h3 { font-size: 35px; }
-  footer { padding-inline: 20px; flex-direction: column; gap: 10px; }
+
+@media (max-width: 480px) {
+  .screen {
+    padding: 24px 16px 45px;
+    gap: 20px;
+  }
+  .lock-art {
+    min-height: 310px;
+  }
+  .polaroid {
+    width: 270px;
+    padding: 12px 12px 22px;
+  }
+  .polaroid-caption {
+    font-size: 15px;
+    padding-top: 10px;
+  }
+  .mini-camera {
+    font-size: 32px;
+    top: 0;
+    right: 4%;
+  }
+  .mini-bow {
+    font-size: 36px;
+    bottom: 2%;
+    right: 5%;
+  }
+  .tape {
+    width: 80px;
+    height: 24px;
+  }
+  .lock-panel h1 {
+    font-size: 38px;
+  }
+  .heart-row {
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin: 14px 0 10px;
+  }
+  .hint {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .keypad {
+    max-width: 270px;
+    gap: 8px;
+  }
+  .keypad button {
+    height: 56px;
+    font-size: 20px;
+  }
+  .enter-btn {
+    padding: 14px 18px;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  .topbar {
+    padding: 18px 16px;
+  }
+  .brand {
+    font-size: 13px;
+  }
+  .tiny-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+  .hero {
+    padding: 20px 16px 50px;
+    gap: 30px;
+  }
+  .hero h2 {
+    font-size: 46px;
+    line-height: 0.98;
+    margin-bottom: 18px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .primary-btn, .ghost-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+  }
+  .hero-photo-wrap {
+    min-height: 310px;
+  }
+  .hero-polaroid {
+    width: 280px;
+    padding: 12px 12px 20px;
+  }
+  .hero-caption {
+    font-size: 15px;
+    padding-top: 12px;
+  }
+  .photo-sticker {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  .sticker-top {
+    top: 2%;
+    left: 0;
+  }
+  .sticker-bottom {
+    bottom: 4%;
+    right: 0;
+  }
+  .feature-card {
+    padding: 18px;
+    gap: 12px;
+    border-radius: 20px;
+  }
+  .feature-card .icon {
+    font-size: 26px;
+  }
+  .feature-card b {
+    font-size: 15px;
+  }
+  .feature-card small {
+    font-size: 12.5px;
+  }
+  .section-heading h3 {
+    font-size: 34px;
+  }
+  .section-heading p:not(.eyebrow) {
+    font-size: 14.5px;
+  }
+  .memory-section {
+    padding: 50px 16px;
+  }
+  .memory-card {
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+  .memory-card h4 {
+    font-size: 24px;
+  }
+  .card-img-wrap {
+    height: 210px;
+  }
+  .memory-card p {
+    font-size: 13.5px;
+    margin-bottom: 18px;
+  }
+  .quote-section {
+    padding: 60px 16px 40px;
+  }
+  .quote-mark {
+    font-size: 65px;
+    height: 45px;
+  }
+  blockquote {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  .cake-celebration-section {
+    padding: 0 16px;
+    margin-bottom: 60px;
+  }
+  .cake-card-glass {
+    padding: 26px 16px;
+    border-radius: 24px;
+    gap: 22px;
+  }
+  .aesthetic-cake-img {
+    max-width: 240px;
+    border-radius: 20px;
+  }
+  .cake-badge {
+    font-size: 11.5px;
+    padding: 6px 14px;
+    bottom: 10px;
+  }
+  .cake-title {
+    font-size: 36px;
+    line-height: 1.08;
+    margin-bottom: 14px;
+  }
+  .cake-subtitle {
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .luxury-sparkle-btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  .modal-card {
+    padding: 26px 18px;
+    border-radius: 22px;
+  }
+  .modal-card h3 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  .modal-card > p:not(.eyebrow) {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .wish-text {
+    font-size: 22px;
+    padding: 20px 14px;
+    min-height: 120px;
+  }
+  .close-modal {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    right: 14px;
+    top: 14px;
+  }
 }
