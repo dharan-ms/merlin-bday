@@ -175,3 +175,93 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ── Cracker Particle Animation ────────────────────────────────
+(function() {
+  const canvas = document.getElementById("crackerCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+  let animFrame = null;
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const COLORS = [
+    "#ff4f91","#f21c78","#ff9fca","#f6c56d",
+    "#9c7af4","#5bc7b2","#fff","#ffec6e","#ff6b6b","#a8edea"
+  ];
+
+  function createParticles(x, y) {
+    for (let i = 0; i < 130; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 3 + Math.random() * 11;
+      particles.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - (4 + Math.random() * 6),
+        alpha: 1,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        size: 5 + Math.random() * 8,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.28,
+        gravity: 0.26 + Math.random() * 0.16,
+        shape: Math.random() < 0.5 ? "circle" : "rect",
+        decay: 0.011 + Math.random() * 0.012
+      });
+    }
+  }
+
+  function drawParticle(p) {
+    ctx.save();
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle   = p.color;
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    if (p.shape === "circle") {
+      ctx.beginPath();
+      ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+    }
+    ctx.restore();
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles = particles.filter(p => p.alpha > 0.02);
+    particles.forEach(p => {
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.vy += p.gravity;
+      p.vx *= 0.985;
+      p.alpha    -= p.decay;
+      p.rotation += p.rotSpeed;
+      drawParticle(p);
+    });
+    animFrame = particles.length > 0 ? requestAnimationFrame(animate) : null;
+  }
+
+  function popCracker(btn) {
+    const rect = btn.getBoundingClientRect();
+    const x = rect.left + rect.width  / 2;
+    const y = rect.top  + rect.height / 2;
+
+    btn.classList.remove("popped");
+    void btn.offsetWidth;
+    btn.classList.add("popped");
+    setTimeout(() => btn.classList.remove("popped"), 460);
+
+    createParticles(x, y);
+    if (!animFrame) animFrame = requestAnimationFrame(animate);
+    showToast("🎉 Pop! Happy Birthday Merlin!");
+  }
+
+  document.getElementById("crackerLeft") .addEventListener("click", function() { popCracker(this); });
+  document.getElementById("crackerRight").addEventListener("click", function() { popCracker(this); });
+})();

@@ -504,6 +504,66 @@ footer {
   animation: fall 2.7s cubic-bezier(.2,.8,.3,1) forwards;
 }
 
+/* ── Cracker Canvas ── */
+#crackerCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ── Cracker Buttons ── */
+.cracker-btn {
+  position: fixed;
+  bottom: 32px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(242, 28, 120, 0.25);
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(220, 50, 115, 0.22);
+  backdrop-filter: blur(10px);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: crackerFloat 3.5s ease-in-out infinite;
+}
+.cracker-left  { left: 24px; animation-delay: 0s; }
+.cracker-right { right: 24px; animation-delay: 1.2s; }
+.cracker-btn:hover {
+  transform: scale(1.18) rotate(-5deg);
+  box-shadow: 0 14px 36px rgba(220, 50, 115, 0.38);
+}
+.cracker-btn:active {
+  transform: scale(0.88);
+}
+.cracker-btn.popped {
+  animation: crackerPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes crackerFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(5deg); }
+}
+@keyframes crackerPop {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.45) rotate(-12deg); }
+  60%  { transform: scale(0.85) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@media (max-width: 480px) {
+  .cracker-btn { width: 52px; height: 52px; font-size: 24px; bottom: 22px; }
+  .cracker-left  { left: 14px; }
+  .cracker-right { right: 14px; }
+}
+
+
 .floating-shapes span { position: fixed; z-index: -1; color: #ff9fc4; opacity: .22; font-size: 26px; animation: drift 8s ease-in-out infinite; }
 .floating-shapes span:nth-child(1){left:5%;top:25%}.floating-shapes span:nth-child(2){left:92%;top:30%;animation-delay:1s}.floating-shapes span:nth-child(3){left:12%;top:80%;animation-delay:2s}.floating-shapes span:nth-child(4){left:80%;top:78%;animation-delay:3s}.floating-shapes span:nth-child(5){left:48%;top:5%;animation-delay:4s}
 
