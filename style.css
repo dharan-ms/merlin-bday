@@ -155,6 +155,11 @@ button:focus-visible { outline: 3px solid #ff4f91; outline-offset: 3px; }
   max-width: 1180px; margin: auto; padding: 28px 24px;
   display: flex; justify-content: space-between; align-items: center;
 }
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .brand { font-family: "Outfit", sans-serif; font-weight: 700; letter-spacing: 0.08em; color: var(--hot); font-size: 15px; text-transform: uppercase; }
 .brand-dot { display: inline-block; width: 8px; height: 8px; background: var(--pink); border-radius: 50%; margin-right: 8px; }
 .tiny-btn, .ghost-btn, .secondary-btn {
@@ -163,6 +168,19 @@ button:focus-visible { outline: 3px solid #ff4f91; outline-offset: 3px; }
   font-family: "Outfit", sans-serif; font-weight: 600; font-size: 13.5px;
 }
 .tiny-btn:hover, .ghost-btn:hover, .secondary-btn:hover { transform: translateY(-2px); }
+.music-toggle-btn.playing {
+  background: linear-gradient(135deg, rgba(255, 79, 145, 0.15), rgba(242, 28, 120, 0.22));
+  border-color: rgba(242, 28, 120, 0.4);
+  color: var(--hot);
+}
+.music-toggle-btn.playing .music-icon {
+  display: inline-block;
+  animation: pulseMusic 1.2s ease-in-out infinite;
+}
+@keyframes pulseMusic {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25) rotate(10deg); }
+}
 
 .hero {
   max-width: 1180px; margin: 0 auto; padding: 50px 24px 85px;

@@ -44,6 +44,7 @@ function unlock() {
       birthdayScreen.classList.remove("hidden");
       window.scrollTo(0,0);
       burst(80);
+      startBirthdayMusic();
     }, 620);
   } else {
     pinMessage.textContent = "Almost! Try the birthday date: 22-09 ✨";
@@ -129,3 +130,48 @@ function burst(count) {
   }
   setTimeout(() => root.innerHTML = "", 3300);
 }
+
+// ── Birthday Music ──────────────────────────────────────────
+const birthdayAudio = new Audio("assets/happy-birthday.mp3");
+birthdayAudio.loop = true;
+birthdayAudio.volume = 0.55;
+
+let musicPlaying = false;
+
+function startBirthdayMusic() {
+  birthdayAudio.currentTime = 0;
+  birthdayAudio.play().then(() => {
+    musicPlaying = true;
+    updateMusicBtn();
+  }).catch(() => {
+    // autoplay blocked — user must click the button manually
+  });
+}
+
+function updateMusicBtn() {
+  const btn = document.getElementById("musicBtn");
+  if (!btn) return;
+  if (musicPlaying) {
+    btn.classList.add("playing");
+    btn.querySelector(".music-label").textContent = "pause music";
+  } else {
+    btn.classList.remove("playing");
+    btn.querySelector(".music-label").textContent = "play music";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const musicBtn = document.getElementById("musicBtn");
+  if (musicBtn) {
+    musicBtn.addEventListener("click", () => {
+      if (musicPlaying) {
+        birthdayAudio.pause();
+        musicPlaying = false;
+      } else {
+        birthdayAudio.play();
+        musicPlaying = true;
+      }
+      updateMusicBtn();
+    });
+  }
+});
